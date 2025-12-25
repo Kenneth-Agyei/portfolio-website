@@ -58,12 +58,36 @@ window.addEventListener("hashchange", () => {
 //aside
 
 openSidebarBtn.addEventListener("click", () => {
-  sideBar.style.right = "10px";
+  sideBar.style.display = "block";
   openSidebarBtn.style.display = "none";
+  sideBar.style.width = "50px";
+  sideBar.style.height = "60vh";
+  sideBar.style.left = "90vw";
+  navBox.classList.remove("full-sidebar-navBox");
+  navBox.classList.add(".nav-box");
+  navBoxUl.classList.remove("full-sidebar-navBoxUl");
+  navBoxUl.classList.add("ul");
+  sideNavLinks.forEach((sideNavLink) => {
+    sideNavLink.classList.remove("full-sidebar-navLink");
+    sideNavLink.classList.add("a");
+  });
+  navIcons.forEach((navIcon) => {
+    navIcon.classList.remove("full-sidebar-navIcon");
+    navIcon.classList.add("svg");
+  });
+  navText.forEach((navT) => {
+    navT.style.display = "none";
+    navT.classList.remove("full-sidebar-navText");
+  });
+  fullSidebarBtn.style.display = "block";
+  halfSidebarBtn.style.display = "none";
+  svgGroup.classList.remove("full-sidebar-svgGroup");
+  svgGroup.classList.add("svg-group");
+  asideHr.style.top = "0";
 });
 
 closeSidebarBtn.addEventListener("click", () => {
-  sideBar.style.right = "-100%";
+  sideBar.style.display = "none";
   openSidebarBtn.style.display = "block";
   sideBar.style.width = "50px";
   navText.forEach((navT) => {
@@ -77,6 +101,7 @@ closeSidebarBtn.addEventListener("click", () => {
 fullSidebarBtn.addEventListener("click", () => {
   sideBar.style.width = "178px";
   sideBar.style.height = "60vh";
+  sideBar.style.left = "75vw";
   navBox.classList.remove(".nav-box");
   navBox.classList.add("full-sidebar-navBox");
   navBoxUl.classList.remove("ul");
@@ -99,13 +124,12 @@ fullSidebarBtn.addEventListener("click", () => {
   svgGroup.classList.remove("svg-group");
   svgGroup.classList.add("full-sidebar-svgGroup");
   asideHr.style.position = "relative";
-  asideHr.style.top = "-9%";
 });
 
 halfSidebarBtn.addEventListener("click", () => {
   sideBar.style.width = "50px";
-  sideBar.style.height = "65vh";
-  navBox.style.top = "-20px";
+  sideBar.style.height = "60vh";
+  sideBar.style.left = "90vw";
   navBox.classList.remove("full-sidebar-navBox");
   navBox.classList.add(".nav-box");
   navBoxUl.classList.remove("full-sidebar-navBoxUl");
@@ -246,7 +270,8 @@ projectsPack.forEach((projectPack) => {
           </a>
         </button>
         <button class="source-code">
-          <a href="https://github.com/Kenneth-Agyei/portfolio-website/tree/main/Projects/${projectPack.name.replace(/ /g, '_')}" target="blank">
+          <a href="https://github.com/Kenneth-Agyei/portfolio-website/tree/main/Projects/${projectPack.name.replace(/ /g, "_")}" 
+            target="blank">
             Source Code
           </a>
         </button>
@@ -256,3 +281,84 @@ projectsPack.forEach((projectPack) => {
   projectsHTML += projectHTML;
 });
 projectsContainer.innerHTML = projectsHTML;
+
+// Contact form handler
+document
+  .getElementById("contact-form")
+  .addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+
+    const formMessage = document.getElementById("form-message");
+
+    // Reset messages
+    formMessage.textContent = "";
+    formMessage.className = "message";
+
+    // Button loading state
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn.textContent;
+    submitBtn.textContent = "Sending...";
+    submitBtn.disabled = true;
+
+    try {
+      // Collect form data
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      // Basic validation
+      if (!data.name || !data.email) {
+        throw new Error("Please fill in all required fields.");
+      }
+
+      // Email format validation (frontend)
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(data.email)) {
+        throw new Error("Please enter a valid email address.");
+      }
+
+      // Get client IP (optional, best-effort)
+      try {
+        const ipRes = await fetch("https://api.ipify.org?format=json", {
+          cache: "no-store",
+        });
+        const ipData = await ipRes.json();
+        data.ipAddress = ipData.ip || "unknown";
+      } catch {
+        data.ipAddress = "unknown";
+      }
+
+      // Send to Google Apps Script
+      const response = await fetch(
+        "https://script.google.com/macros/s/AKfycbxXINxo1gANLr_deBr3VLUWqYze2nICEcGe8884s7oQKX-19p6maGMj9HH-JWhPxwuB/exec",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
+
+      // Parse JSON safely
+      const result = await response.json();
+
+      if (result.status === "success") {
+        formMessage.textContent =
+          "Thank you! Your message has been sent successfully.";
+        formMessage.className = "message success";
+        form.reset();
+      } else {
+        throw new Error(result.message || "Submission failed.");
+      }
+    } catch (error) {
+      formMessage.textContent =
+        error.message || "Something went wrong. Please try again.";
+      formMessage.className = "message error";
+      console.error("Form submission error:", error);
+    } finally {
+      submitBtn.textContent = originalBtnText;
+      submitBtn.disabled = false;
+    }
+  });
