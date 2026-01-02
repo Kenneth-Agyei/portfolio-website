@@ -18,8 +18,8 @@
 
 @font-face {
   font-family: "Handwriting";
-  src: url("EduNSWACTHandPre-Regular.woff2") format("woff2"),
-    url("EduNSWACTHandPre-Regular.woff") format("woff");
+  src: url("./Fonts/EduNSWACTHandPre-Regular.woff2") format("woff2"),
+    url("./Fonts/EduNSWACTHandPre-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -36,7 +36,7 @@
 
 html {
   max-width: 100vw;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 body {
@@ -304,6 +304,7 @@ ol > li > strong {
   grid-column: span 3;
   height: max-content;
 }
+
 
 /*Skills*/
 
@@ -927,7 +928,7 @@ footer {
   }
 
   #home {
-    margin-top: 15px;
+    margin-top: 20px;
   }
 
   #home .h1,
@@ -1030,13 +1031,18 @@ footer {
 }
 
 @media screen and (max-width: 426px) {
+
+  aside {
+    display: none;
+  }
+
   #home .h1,
   #about .h1,
   #skills .h1,
   #projects .h1,
   #contact .h1 {
-    font-size: 3rem;
-    letter-spacing: 0.6rem;
+    font-size: 2.5rem;
+    letter-spacing: 0.4rem;
   }
 
   #home .h1::after,
@@ -1048,8 +1054,20 @@ footer {
     width: 90%;
   }
 
-  #skills .h1::after {
-    width: 50%;
+  #about {
+    display: none;
+  }
+
+  #projects .h1::after,
+  #contact .h1::after {
+    display: none;
+  }
+
+  #projects .h1,
+  #contact .h1 {
+    text-align: center;
+    left: 0;
+    
   }
 
   .bio .desktop {
@@ -1092,22 +1110,29 @@ footer {
   }
 
   .about-text {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .about-text .professional-background {
-    grid-row: 1fr;
-  }
-
-  .skills-container,
-  .projects-container {
-    margin: 5px;
-    gap: 0.5rem;
+    display: none;
   }
 
   #projects,
   #skills {
     padding: 5px;
+  }
+
+  
+  #skills .h1::after {
+    width: 50%;
+  }
+
+  .skills-container{
+    grid-template-columns: auto-fit;
+  }
+
+  .skill-title {
+    font-size: 1rem;
+  }
+
+  .projects-container {
+    grid-template-columns: 1fr
   }
 
   .project-card {
