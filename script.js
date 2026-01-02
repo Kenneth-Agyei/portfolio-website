@@ -270,7 +270,10 @@ projectsPack.forEach((projectPack) => {
           </a>
         </button>
         <button class="source-code">
-          <a href="https://github.com/Kenneth-Agyei/portfolio-website/tree/main/Projects/${projectPack.name}" 
+          <a href="https://github.com/Kenneth-Agyei/portfolio-website/tree/main/Projects/${projectPack.name.replace(
+            / /g,
+            "_"
+          )}" 
             target="blank">
             Source Code
           </a>
