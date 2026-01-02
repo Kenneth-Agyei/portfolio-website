@@ -270,7 +270,10 @@ projectsPack.forEach((projectPack) => {
           </a>
         </button>
         <button class="source-code">
-          <a href="https://github.com/Kenneth-Agyei/portfolio-website/tree/main/Projects/${projectPack.name.replace(/ /g, "_")}" 
+          <a href="https://github.com/Kenneth-Agyei/portfolio-website/tree/main/Projects/${projectPack.name.replace(
+            / /g,
+            "_"
+          )}" 
             target="blank">
             Source Code
           </a>
@@ -331,13 +334,10 @@ document
 
       // Send to Google Apps Script
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbxXINxo1gANLr_deBr3VLUWqYze2nICEcGe8884s7oQKX-19p6maGMj9HH-JWhPxwuB/exec",
+        "https://script.google.com/macros/s/AKfycbwZKGh-GKY-0FLtbMutChUgtbt7Z5xMY3TcDSwgj4p_TdVvA3hT6YJGYJhA6A06zTt4/exec",
         {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
+          body: formData,
         }
       );
 
