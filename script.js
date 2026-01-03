@@ -101,7 +101,7 @@ closeSidebarBtn.addEventListener("click", () => {
 fullSidebarBtn.addEventListener("click", () => {
   sideBar.style.width = "178px";
   sideBar.style.height = "60vh";
-  sideBar.style.left = "75vw";
+  sideBar.style.left = "65vw";
   navBox.classList.remove(".nav-box");
   navBox.classList.add("full-sidebar-navBox");
   navBoxUl.classList.remove("ul");
@@ -180,6 +180,7 @@ const projectsPack = [
     name: "Simple Calculator",
     "date created": "28th June, 2025",
     src: "/Projects/Simple Calculator/index.html",
+    codepen: "",
     description: [
       "A calculator that just performs the basic or arithmetic operations.",
       "The arithmetic operatiojns are addition, subtraction, multiplication and division.",
@@ -190,6 +191,7 @@ const projectsPack = [
     name: "Digital Clock",
     "date created": "25th June, 2025",
     src: "/Projects/Digital_Clock/index.html",
+    codepen: "https://codepen.io/Kenneth-Agyei/pen/emzparP",
     description: [
       "This is a digital clock that shows the current time in hours, minutes and seconds.",
       "It also shows whether it is AM or PM.",
@@ -200,6 +202,7 @@ const projectsPack = [
     name: "Speech To Text",
     "date created": "1st February, 2025",
     src: "/Projects/Speech_To_Text/index.html",
+    codepen: "https://codepen.io/Kenneth-Agyei/pen/emzpwYo", 
     description: [
       "This convertor also converts all speech into text format.",
       "For example, suppose you have a speech to make but not having enough time to type it, just read the speech to it and it will type all for you.",
@@ -209,6 +212,7 @@ const projectsPack = [
     name: "Text To Speech",
     "date created": "24th February, 2025",
     src: "/Projects/Text_To_Speech/index.html",
+    codepen: "https://codepen.io/Kenneth-Agyei/pen/vEKNqEg",
     description: [
       "This is a text to speech convertor.",
       "It converts whatever text you give it into speech.",
@@ -219,6 +223,7 @@ const projectsPack = [
     name: "Piano",
     "date created": "23rd February, 2025",
     src: "/Projects/Piano/index.html",
+    codepen: "https://codepen.io/Kenneth-Agyei/pen/xbOwNvx",
     description: [
       "This is a sample of piano.",
       "It gives you the sound a piano will give you when a key is pressed.",
@@ -229,6 +234,7 @@ const projectsPack = [
     name: "Robot Joke Generator",
     "date created": "6th January, 2025",
     src: "/Projects/Robot_Joke_Generator/index.html",
+    codepen: "https://codepen.io/Kenneth-Agyei/pen/raLOEBb",
     description: [
       "Whenever you are bored you can use this user-friendly robot joke generator to generate jokes for you.",
       "This project is still under development.",
@@ -238,11 +244,102 @@ const projectsPack = [
     name: "HSL Color Generator",
     "date created": "26th December, 2024",
     src: "/Projects/HSL_Color_Generator/index.html",
+    codepen: "https://codepen.io/Kenneth-Agyei/pen/WbxQBYd",
     description: [
       "This color generator uses the hue, saturation and lightness format.",
       "Depending on the value you put the slider, gives you the colour.",
     ],
   },
+  {
+    name: "Age Calcualtor",
+    "date created": "15th December, 2024",
+    src: "/Projects/Age_Calculator/index.html",
+    codepen: "https://codepen.io/Kenneth-Agyei/pen/emzpaMP",
+    description: [
+      "This age calculator calculates your age depending on the date of birth you give it.",
+      "It gives you your age in years, months and days.",
+    ],  
+  },
+  {
+    name: "Hex To Bin Converter",
+    "date created": "10th December, 2024",
+    src: "/Projects/Hex_To_Bin_Converter/index.html",
+    codepen: "https://codepen.io/Kenneth-Agyei/pen/QwEjRZQ",
+    description: [
+      "This converter converts hexadecimal numbers to binary numbers.",
+      "It has a user-friendly interface.",
+    ],
+  },
+  {
+    name: "Image Carousel",
+    "date created": "5th December, 2024",
+    src: "/Projects/Image_Carousel/index.html", 
+    codepen: "https://codepen.io/Kenneth-Agyei/pen/azZvrQg",
+    description: [
+      "This image carousel displays images one after the other after a specific time interval.",
+      "It has a user-friendly interface.",
+    ],
+  },
+  {
+    name: "Image Comparison Slider",
+    "date created": "1st December, 2024",
+    src: "/Projects/Image_Comparison_Slider/index.html",
+    codepen: "https://codepen.io/Kenneth-Agyei/pen/GgqpaPr",
+    description: [
+      "This image comparison slider allows you to compare two images side by side.",
+      "It has a user-friendly interface.",
+    ],
+  },
+  {
+    name: "Love Calculator",
+    "date created": "28th November, 2024",
+    src: "/Projects/Love_Calculator/index.html",
+    codepen: "https://codepen.io/Kenneth-Agyei/pen/XJKmwQQ",
+    description: [
+      "This love calculator calculates the love percentage between two people based on their names.",
+      "It has a user-friendly interface.",
+    ],
+  },
+  {
+    name: "Notes Taking App",
+    "date created": "20th November, 2024",
+    src: "/Projects/Notes_Taking_App/index.html",
+    codepen: "https://codepen.io/Kenneth-Agyei/pen/OPXyYej",
+    description: [
+      "This notes taking app allows you to take notes and save them for future reference.",
+      "It has a user-friendly interface.",
+    ],
+  },
+  {
+    name: "Quick URL",
+    "date created": "15th November, 2024",
+    src: "/Projects/Quick_URL/index.html",
+    codepen: "https://codepen.io/Kenneth-Agyei/pen/vEKNqBy",
+    description: [
+      "This quick URL project allows you to create short URLs for long links.",
+      "It has a user-friendly interface.",
+    ],
+  },
+  {
+    name: "Vowel Counter",
+    "date created": "10th November, 2024",
+    src: "/Projects/Vowel_Counter/index.html",
+    codepen: "https://codepen.io/Kenneth-Agyei/pen/VYjvJLK",
+    description: [
+      "This vowel counter counts the number of vowels in a given text.",
+      "It has a user-friendly interface.",
+    ],
+  },
+  {
+    name: "Words Counter",
+    "date created": "5th November, 2024",
+    src: "/Projects/Word_Counter/index.html",
+    codepen: "https://codepen.io/Kenneth-Agyei/pen/emzpwNo",
+    description: [
+      "This word counter counts the number of words in a given text.",
+      "It has a user-friendly interface.",
+    ],
+  }
 ];
 
 let projectsHTML = "";
@@ -263,22 +360,11 @@ projectsPack.forEach((projectPack) => {
             .join("")}
         </ul>
       </p>
-      <div class="btn-group">
-        <button class="visit">
-          <a href="${projectPack.src}" target="blank">
-            Visit
-          </a>
-        </button>
-        <button class="source-code">
-          <a href="https://github.com/Kenneth-Agyei/portfolio-website/tree/main/Projects/${projectPack.name.replace(
-            / /g,
-            "_"
-          )}" 
-            target="blank">
-            Source Code
-          </a>
-        </button>
-      </div>
+      <a href="${projectPack.codepen ? projectPack.codepen : '#'}" 
+        target="blank"
+        class="explore">
+        Explore
+      </a>
     </div>
   `;
   projectsHTML += projectHTML;
