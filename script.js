@@ -345,7 +345,10 @@ const projectsPack = [
 let projectsHTML = "";
 projectsPack.forEach((projectPack) => {
   const projectHTML = `
-    <div class="project-card">
+    <div class="project-card"
+         data-aos="fade-right"
+         data-aos-offset="300"
+         data-aos-easing="ease-in-sine">
       <h2 class="project-title">
         ${projectPack.name}
       </h2>
